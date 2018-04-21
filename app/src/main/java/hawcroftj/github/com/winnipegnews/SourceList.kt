@@ -1,5 +1,6 @@
 package hawcroftj.github.com.winnipegnews
 
+import hawcroftj.github.com.winnipegnews.*
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -25,10 +26,17 @@ class SourceList : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        // pull news source URLs from sources.xml
-        var sourceUrlList = resources.getStringArray(R.array.news_sources)
+        // pull news source names and Urls from sources.xml
+        var sourceNames = resources.getStringArray(R.array.source_name)
+        var sourceUrls = resources.getStringArray(R.array.source_url)
+        // create Source objects for each entry
+        var sources = ArrayList<Source>()
+        for(i in 0..sourceNames.size - 1) {
+            sources.add(Source(sourceNames[i], sourceUrls[i]))
+        }
+
         // prepare simple adapter for lvSources
-        val sourceAdapter = ArrayAdapter(this, R.layout.source_row, sourceUrlList)
+        val sourceAdapter = SourceAdapter(this, sources)
         lvSources.adapter = sourceAdapter
     }
 }

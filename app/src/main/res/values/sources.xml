@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="news_sources">
+    <string-array name="source_name">
+        <item>Winnipeg Free Press</item>
+
+        <item>Global News Winnipeg</item>
+
+        <item>CTV Winnipeg</item>
+
+        <item>Winnipeg Sun</item>
+
+        <item>ChrisD</item>
+    </string-array>
+
+    <string-array name="source_url">
         <!-- Winnipeg Free Press -->
         <!-- https://www.winnipegfreepress.com/rss/?path=%2Flocal&path=%2Flocal -->
         <item>https://www.winnipegfreepress.com/rss/?path=%2Flocal&amp;path=%2Flocal</item>
