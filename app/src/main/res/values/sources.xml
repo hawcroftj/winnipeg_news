@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="news_sources">
+        <!-- Winnipeg Free Press -->
+        <!-- https://www.winnipegfreepress.com/rss/?path=%2Flocal&path=%2Flocal -->
+        <item>https://www.winnipegfreepress.com/rss/?path=%2Flocal&amp;path=%2Flocal</item>
+
+        <!-- Global News Winnipeg -->
+        <item>https://globalnews.ca/winnipeg/feed/</item>
+
+        <!-- CTV Winnipeg -->
+        <item>https://winnipeg.ctvnews.ca/rss/ctv-news-winnipeg-1.822382</item>
+
+        <!-- Winnipeg Sun -->
+        <item>http://winnipegsun.com/feed/</item>
+
+        <!-- ChrisD -->
+        <item>https://www.chrisd.ca/feed/</item>
+    </string-array>
+</resources>
