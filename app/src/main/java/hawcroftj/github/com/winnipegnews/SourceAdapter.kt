@@ -1,24 +1,36 @@
 package hawcroftj.github.com.winnipegnews
 
+import android.content.Context
+import android.support.v7.view.menu.ActionMenuItemView
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.ListView
 
-class SourceAdapter : BaseAdapter() {
+class SourceAdapter(private val context: Context,
+                    private val sourceUrlList: Array<String>) : BaseAdapter() {
+
+    private val inflater: LayoutInflater =
+            context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+
+    private class ViewHolder(row: View?) {
+
+    }
 
     override fun getCount(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return sourceUrlList.size
     }
 
     override fun getItem(position: Int): Any {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return sourceUrlList[position]
     }
 
     override fun getItemId(position: Int): Long {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return position.toLong()
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return inflater.inflate(R.layout.source_row, parent, false)
     }
 }
