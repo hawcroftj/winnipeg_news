@@ -6,4 +6,9 @@
     android:layout_height="match_parent"
     tools:context="hawcroftj.github.com.winnipegnews.ItemList">
 
+    <ListView
+        android:id="@+id/lvItems"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </android.support.constraint.ConstraintLayout>
