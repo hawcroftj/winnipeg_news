@@ -7,10 +7,10 @@ import android.os.Parcelable
  * Item
  * A news item to be displayed in a ListView.
  * An item contains a title, some content (i.e. an article),
- * and optionally, an image.
+ * a link, author, date, and optionally, an image.
  */
 class Item(val title: String, val content: String, val date: String,
-           val link: String, val author: String, val image: String) : Parcelable {
+           val url: String, val author: String, val image: String) : Parcelable {
     constructor(parcel: Parcel) : this(
             parcel.readString(),
             parcel.readString(),
@@ -23,7 +23,7 @@ class Item(val title: String, val content: String, val date: String,
         parcel.writeString(title)
         parcel.writeString(content)
         parcel.writeString(date)
-        parcel.writeString(link)
+        parcel.writeString(url)
         parcel.writeString(author)
         parcel.writeString(image)
     }
