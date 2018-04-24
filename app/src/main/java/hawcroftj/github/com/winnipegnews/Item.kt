@@ -9,8 +9,10 @@ import android.os.Parcelable
  * An item contains a title, some content (i.e. an article),
  * and optionally, an image.
  */
-class Item(val title: String, val content: String, val image: String) : Parcelable {
+class Item(val title: String, val content: String,
+           val date: String, val image: String) : Parcelable {
     constructor(parcel: Parcel) : this(
+            parcel.readString(),
             parcel.readString(),
             parcel.readString(),
             parcel.readString())
@@ -18,6 +20,7 @@ class Item(val title: String, val content: String, val image: String) : Parcelab
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(title)
         parcel.writeString(content)
+        parcel.writeString(date)
         parcel.writeString(image)
     }
 
