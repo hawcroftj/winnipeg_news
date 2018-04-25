@@ -22,5 +22,8 @@ class ItemList : AppCompatActivity() {
         val processTask: ProcessSourceFeed = ProcessSourceFeed(selectedSource)
         processTask.execute()
 
+        // TODO implement interface to return data to this activity
+        // https://stackoverflow.com/questions/12575068/how-to-get-the-result-of-onpostexecute-to-main-activity-because-asynctask-is-a
+
     }
 }
