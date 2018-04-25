@@ -22,6 +22,7 @@ import javax.xml.parsers.SAXParserFactory
  */
 class ProcessSourceFeed(val source: Source) : AsyncTask<Source, Int, Long>() {
 
+    var delegate: AsyncResponse? = null
     private val TAG: String = "SAX-parse"
     private val handler: SourceHandler = SourceHandler()
     var sourceItems: ArrayList<Item> = ArrayList()
@@ -65,6 +66,6 @@ class ProcessSourceFeed(val source: Source) : AsyncTask<Source, Int, Long>() {
         super.onPostExecute(result)
         Log.d(TAG, "Done!")
         // retrieve the Items parsed in the handler
-        sourceItems = handler.sourceItems
+        delegate?.processFinish(handler.sourceItems)
     }
 }
