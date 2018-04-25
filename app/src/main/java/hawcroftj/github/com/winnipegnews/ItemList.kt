@@ -1,5 +1,6 @@
 package hawcroftj.github.com.winnipegnews
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ListView
@@ -7,6 +8,7 @@ import android.widget.ListView
 class ItemList : AppCompatActivity(), AsyncResponse {
 
     private lateinit var lvItems: ListView
+    private lateinit var itemsAdapter: ItemAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,11 +27,26 @@ class ItemList : AppCompatActivity(), AsyncResponse {
         processTask.execute()
     }
 
+    override fun onStart() {
+        super.onStart()
+
+        // send selected Item to ItemWebView
+        lvItems.setOnItemClickListener { parent, view, position, id ->
+            val selectedItem = itemsAdapter.getItem(position) as Item
+            val itemIntent = Intent(this, ItemWebView::class.java)
+            itemIntent.putExtra("item", selectedItem)
+            startActivity(itemIntent)
+        }
+    }
+
+    /**
+     * Receives a collection of Source Items and creates an ItemsAdapter.
+     */
     override fun processFinish(sourceItems: ArrayList<Item>) {
         var items: ArrayList<Item> = sourceItems
 
         // prepare adapter for lvItems
-        val itemsAdapter = ItemAdapter(this, items)
+        itemsAdapter = ItemAdapter(this, items)
         lvItems.adapter = itemsAdapter
         itemsAdapter.notifyDataSetChanged()
     }

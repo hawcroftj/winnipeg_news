@@ -1,6 +1,8 @@
 package hawcroftj.github.com.winnipegnews
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
@@ -15,7 +17,7 @@ class SourceList : AppCompatActivity() {
         setContentView(R.layout.activity_source_list)
 
         // initialize views
-        lvSources = findViewById<ListView>(R.id.lvSources)
+        lvSources = findViewById(R.id.lvSources)
     }
 
     /**
