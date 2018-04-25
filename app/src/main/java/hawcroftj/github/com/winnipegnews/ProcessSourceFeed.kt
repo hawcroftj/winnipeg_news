@@ -1,6 +1,9 @@
 package hawcroftj.github.com.winnipegnews
 
+import android.nfc.Tag
 import android.os.AsyncTask
+import android.util.Log
+import android.widget.Toast
 import org.xml.sax.SAXException
 import java.io.IOException
 import java.io.InputStream
@@ -18,6 +21,11 @@ import javax.xml.parsers.SAXParserFactory
  * into Item objects.
  */
 class ProcessSourceFeed(val source: Source) : AsyncTask<Source, Int, Long>() {
+
+    private val TAG: String = "SAX-parse"
+    private val handler: SourceHandler = SourceHandler()
+    var sourceItems: ArrayList<Item> = ArrayList()
+
     override fun onPreExecute() {
         super.onPreExecute()
     }
@@ -27,7 +35,6 @@ class ProcessSourceFeed(val source: Source) : AsyncTask<Source, Int, Long>() {
         val currentUrl: URL
         val connection: HttpURLConnection
         val stream: InputStream
-        val handler: SourceHandler = SourceHandler()
 
         try {
             // grab the Source RSS feed URL
@@ -41,9 +48,9 @@ class ProcessSourceFeed(val source: Source) : AsyncTask<Source, Int, Long>() {
 
         } catch (ex: Exception) { // TODO implement exception handling
             when(ex) {
-                is IOException -> { }
-                is MalformedURLException -> { }
-                is ParserConfigurationException, is SAXException -> { }
+                is IOException -> { Log.d(TAG, ex.message) }
+                is MalformedURLException -> { Log.d(TAG, ex.message) }
+                is ParserConfigurationException, is SAXException -> { Log.d(TAG, ex.message) }
             }
         }
 
@@ -56,5 +63,8 @@ class ProcessSourceFeed(val source: Source) : AsyncTask<Source, Int, Long>() {
 
     override fun onPostExecute(result: Long?) {
         super.onPostExecute(result)
+        Log.d(TAG, "Done!")
+        // retrieve the Items parsed in the handler
+        sourceItems = handler.sourceItems
     }
 }

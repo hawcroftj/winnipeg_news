@@ -10,18 +10,18 @@ import org.xml.sax.helpers.DefaultHandler
 class SourceHandler : DefaultHandler (){
     var sourceItems: ArrayList<Item> = ArrayList()
     // these flags will determine which node is being processed for a given Item
-    var inItem: Boolean = false
-    var inTitle: Boolean = false
-    var inLink: Boolean = false
-    var inContent: Boolean = false
-    var inDate: Boolean = false
-    var inAuthor: Boolean = false
+    private var inItem: Boolean = false
+    private var inTitle: Boolean = false
+    private var inLink: Boolean = false
+    private var inContent: Boolean = false
+    private var inDate: Boolean = false
+    private var inAuthor: Boolean = false
     // initialize StringBuilder for each property of the Item
-    var titleString: StringBuilder = StringBuilder()
-    var linkString: StringBuilder = StringBuilder()
-    var contentString: StringBuilder = StringBuilder()
-    var dateString: StringBuilder = StringBuilder()
-    var authorString: StringBuilder = StringBuilder()
+    private var titleString: StringBuilder = StringBuilder()
+    private var linkString: StringBuilder = StringBuilder()
+    private var contentString: StringBuilder = StringBuilder()
+    private var dateString: StringBuilder = StringBuilder()
+    private var authorString: StringBuilder = StringBuilder()
 
     override fun startElement(uri: String?, localName: String?, qName: String?, attributes: Attributes?) {
         super.startElement(uri, localName, qName, attributes)

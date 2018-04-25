@@ -19,5 +19,8 @@ class ItemList : AppCompatActivity() {
         val selectedSource = sourceIntent.getParcelableExtra<Source>("source")
         Toast.makeText(this, selectedSource.name, Toast.LENGTH_SHORT).show()
 
+        val processTask: ProcessSourceFeed = ProcessSourceFeed(selectedSource)
+        processTask.execute()
+
     }
 }
