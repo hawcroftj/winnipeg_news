@@ -8,6 +8,7 @@ import org.xml.sax.helpers.DefaultHandler
  * Converts news article data (json, XML) from a given Source feed into Item objects.
  */
 class SourceHandler : DefaultHandler (){
+    var sourceItems: ArrayList<Item> = ArrayList()
     // these flags will determine which node is being processed for a given Item
     var inItem: Boolean = false
     var inTitle: Boolean = false
@@ -24,25 +25,52 @@ class SourceHandler : DefaultHandler (){
 
     override fun startElement(uri: String?, localName: String?, qName: String?, attributes: Attributes?) {
         super.startElement(uri, localName, qName, attributes)
+        // 'open' the node which is currently being processed (set flag to true)
         when(qName) {
-            // TODO determine which node is being processed
-            // TODO 'open' the node (set flag to true)
+            "item" -> { inItem = true }
+            "title" -> { inTitle = true }
+            "link" -> { inLink = true }
+            "description" -> { inContent = true }
+            "pubDate" -> { inDate = true }
+            "author" -> { inAuthor = true }
         }
     }
 
     override fun endElement(uri: String?, localName: String?, qName: String?) {
         super.endElement(uri, localName, qName)
+        // 'close' the node which is currently being processed (set flag to false)
         when(qName) {
-            // TODO determine which node has just been processed
-            // TODO 'close' the node (set flag to false)
-            // TODO if the node was an entry (indicating end of article), then
-            // TODO create new Item and add it to a collection
+            "item" -> { // add the new Item to list of Source Items
+                inItem = false
+                sourceItems.add(Item(titleString.toString().trim(),
+                        contentString.toString().trim(),
+                        dateString.toString().trim(),
+                        linkString.toString().trim(),
+                        authorString.toString().trim(), ""))
+            }
+            "title" -> { inTitle = false }
+            "link" -> { inLink = false }
+            "description" -> { inContent = false }
+            "pubDate" -> { inDate = false }
+            "author" -> { inAuthor = false }
         }
     }
 
     override fun characters(ch: CharArray?, start: Int, length: Int) {
         super.characters(ch, start, length)
-        // TODO if inside an article, and the node contains data
-        // TODO determine which node is being processed and add char data to string builder
+        // add the node data to the correct property string builder
+        if(inItem && ch != null) {
+            if(inTitle) {
+                titleString.append(ch, start, length)
+            } else if(inLink) {
+                linkString.append(ch, start, length)
+            } else if(inContent) {
+                contentString.append(ch, start, length)
+            } else if(inDate) {
+                dateString.append(ch, start, length)
+            } else if(inAuthor) {
+                authorString.append(ch, start, length)
+            }
+        }
     }
 }
