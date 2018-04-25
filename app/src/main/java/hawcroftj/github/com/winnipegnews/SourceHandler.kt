@@ -47,6 +47,12 @@ class SourceHandler : DefaultHandler (){
                         dateString.toString().trim(),
                         linkString.toString().trim(),
                         authorString.toString().trim(), ""))
+                // delete data from string builder so it can be reused for next node
+                titleString.setLength(0)
+                linkString.setLength(0)
+                contentString.setLength(0)
+                dateString.setLength(0)
+                authorString.setLength(0)
             }
             "title" -> { inTitle = false }
             "link" -> { inLink = false }

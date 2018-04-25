@@ -14,11 +14,6 @@ class SourceList : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_source_list)
 
-        /* TODO
-         * Potential Sources:
-         * Free Press, Global News, CTV News, CBC Manitoba, Winnipeg Sun, Chris D
-         */
-
         // initialize views
         lvSources = findViewById<ListView>(R.id.lvSources)
     }
@@ -38,6 +33,7 @@ class SourceList : AppCompatActivity() {
         for(i in 0 until sourceNames.size) {
             sources.add(Source(sourceNames[i], sourceUrls[i]))
         }
+
         // prepare adapter for lvSources
         val sourceAdapter = SourceAdapter(this, sources)
         lvSources.adapter = sourceAdapter
