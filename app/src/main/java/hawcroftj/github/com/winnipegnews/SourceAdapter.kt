@@ -16,11 +16,11 @@ class SourceAdapter(private val context: Context,
      */
     private class ViewHolder(row: View?) {
         var tvSourceName: TextView? = null
-        var tvSourceUrl: TextView? = null
+        //var tvSourceUrl: TextView? = null
 
         init {
             this.tvSourceName = row?.findViewById(R.id.tvSourceName)
-            this.tvSourceUrl = row?.findViewById(R.id.tvSourceUrl)
+            //this.tvSourceUrl = row?.findViewById(R.id.tvSourceUrl)
         }
     }
 
@@ -47,7 +47,7 @@ class SourceAdapter(private val context: Context,
         // set the value of TextViews in the row to Source object data
         var source = sources[position]
         viewHolder.tvSourceName?.text = source.name
-        viewHolder.tvSourceUrl?.text = source.url
+        //viewHolder.tvSourceUrl?.text = source.url
 
         return view as View
     }

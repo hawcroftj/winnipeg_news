@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="5dp"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/tvSourceName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:text="Source Title" />
 
-    <TextView
-        android:id="@+id/tvSourceUrl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <!--<TextView-->
+        <!--android:id="@+id/tvSourceUrl"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textSize="10sp"-->
+        <!--android:text="www.fakeurl.com/news/articles/feed/12839916622-2j2gg2?1002" />-->
 
 </LinearLayout>
