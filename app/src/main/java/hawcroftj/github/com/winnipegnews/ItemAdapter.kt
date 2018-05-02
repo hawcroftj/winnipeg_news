@@ -18,13 +18,13 @@ class ItemAdapter(private val context: Context,
         var tvTitle: TextView? = null
         var tvContent: TextView? = null
         var tvDate: TextView? = null
-        var tvAuthor: TextView? = null
+        //var tvAuthor: TextView? = null
 
         init {
             this.tvTitle = row?.findViewById(R.id.tvTitle)
             this.tvContent = row?.findViewById(R.id.tvContent)
             this.tvDate = row?.findViewById(R.id.tvDate)
-            this.tvAuthor = row?.findViewById(R.id.tvAuthor)
+            //this.tvAuthor = row?.findViewById(R.id.tvAuthor)
         }
     }
 
@@ -51,9 +51,9 @@ class ItemAdapter(private val context: Context,
         // set the value of TextViews in the row to Item object data
         var item = items[position]
         viewHolder.tvTitle?.text = item.title
-        viewHolder.tvContent?.text = item.content
+        viewHolder.tvContent?.text = String.format("%s...", item.content.substring(0, 100))
         viewHolder.tvDate?.text = item.date
-        viewHolder.tvAuthor?.text = item.author
+        //viewHolder.tvAuthor?.text = item.author
 
         return view as View
     }

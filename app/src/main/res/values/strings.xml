@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Winnipeg News</string>
+
+    <string name="sources">Sources</string>
 </resources>

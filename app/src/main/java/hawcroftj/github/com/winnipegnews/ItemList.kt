@@ -21,6 +21,9 @@ class ItemList : AppCompatActivity(), AsyncResponse {
         val sourceIntent = intent
         val selectedSource = sourceIntent.getParcelableExtra<Source>("source")
 
+        // set activity label
+        setTitle(selectedSource.name)
+
         // begin processing the selected Source
         val processTask = ProcessSourceFeed(selectedSource)
         processTask.delegate = this
