@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Winnipeg News</string>
+    <string name="app_settings">App Settings</string>
 
     <string name="sources">Sources</string>
+    <string name="source_settings">Settings</string>
 </resources>

@@ -10,6 +10,20 @@
         <item>Winnipeg Sun</item>
 
         <item>ChrisD</item>
+
+        <item>CBC Manitoba</item>
+
+        <item>City of Winnipeg</item>
+
+        <item>MyToba</item>
+
+        <item>CityNews Winnipeg</item>
+
+        <item>The Manitoban</item>
+
+        <item>The Projector</item>
+
+        <item>UWinnipeg News Centre</item>
     </string-array>
 
     <string-array name="source_url">
@@ -28,5 +42,26 @@
 
         <!-- ChrisD -->
         <item>https://www.chrisd.ca/feed/</item>
+
+        <!-- CBC Manitoba -->
+        <item>http://www.cbc.ca/cmlink/rss-canada-manitoba</item>
+
+        <!-- City of Winnipeg -->
+        <item>http://winnipeg.ca/interhom/RSS/RSSNewsTopTen.xml</item>
+
+        <!-- MyToba -->
+        <item>http://mytoba.ca/feed/</item>
+
+        <!-- CityNews Winnipeg -->
+        <item>http://winnipeg.citynews.ca/feed/</item>
+
+        <!-- The Manitoban -->
+        <item>http://www.themanitoban.com/feed/</item>
+
+        <!-- The Projector -->
+        <item>http://theprojector.ca/feed/</item>
+
+        <!-- UWinnipeg News Centre -->
+        <item>http://news-centre.uwinnipeg.ca/feed/</item>
     </string-array>
 </resources>

@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
+import android.view.Menu
 import android.widget.ListView
 
 class SourceList : AppCompatActivity() {
@@ -47,5 +48,11 @@ class SourceList : AppCompatActivity() {
             sourceIntent.putExtra("source", selectedSource as Parcelable)
             startActivity(sourceIntent)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        var inflater = menuInflater
+        inflater.inflate(R.menu.source_menu, menu)
+        return true
     }
 }
